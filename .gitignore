@@ -1,3 +1,9 @@
+# Project data: never commit datasets
+data/
+
+# Secrets: never commit keys or tokens
+.env
+*.key
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
