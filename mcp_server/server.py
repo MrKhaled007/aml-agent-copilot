@@ -14,8 +14,16 @@ load_dotenv(Path(__file__).parent / ".env")
 
 GOLD = "workspace.aml_gold"
 MAX_ROWS = 50
+TRIAGE_PROMPT = (Path(__file__).parent.parent / "agent" / "triage_prompt.md").read_text(encoding="utf-8")
 
-mcp = MCPServer("aml-agent-copilot")
+mcp = MCPServer(
+    "aml-agent-copilot",
+    instructions=(
+        "Read-only tools for AML alert triage over the aml_gold schema. "
+        "Amounts are in USD. The data contains no ground-truth labels. "
+        "For a full triage, use the triage_alert prompt."
+    ),
+)
 
 
 def _clean(value):
@@ -164,6 +172,11 @@ def get_counterparties(account_id: str, limit: int = 20) -> list[dict]:
     """, {"account_id": account_id})
 
 
+
+@mcp.prompt()
+def triage_alert(alert_id: str) -> str:
+    """Triage one AML alert using the standard procedure and output format."""
+    return f"{TRIAGE_PROMPT}\n\nTriage alert {alert_id}."
 
 
 
