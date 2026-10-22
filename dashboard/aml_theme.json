@@ -1,0 +1,23 @@
+{
+  "name": "AML Copilot",
+  "dataColors": ["#A100FF", "#A3A3A3", "#7D00C4", "#000000", "#BE4BFF", "#6B6B6B", "#3AD29F", "#FFB800", "#FF5252"],
+  "background": "#FFFFFF",
+  "foreground": "#000000",
+  "tableAccent": "#A100FF",
+  "good": "#3AD29F",
+  "neutral": "#FFB800",
+  "bad": "#FF5252",
+  "textClasses": {
+    "callout": { "fontFace": "Segoe UI Semibold", "fontSize": 28, "color": "#000000" },
+    "title": { "fontFace": "Segoe UI Semibold", "fontSize": 13, "color": "#000000" },
+    "header": { "fontFace": "Segoe UI Semibold", "fontSize": 12, "color": "#000000" },
+    "label": { "fontFace": "Segoe UI", "fontSize": 10, "color": "#525252" }
+  },
+  "visualStyles": {
+    "page": {
+      "*": {
+        "background": [{ "color": { "solid": { "color": "#F2F2F2" } }, "transparency": 0 }]
+      }
+    }
+  }
+}
